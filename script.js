@@ -1,5 +1,6 @@
 const unknownContainer = document.querySelector('#unknown-container');
 const knownContainer = document.querySelector('#known-container');
+const knownPara = document.querySelector('#known-para');
 let unknownWords = ['Hola', 'me', 'llamaste', 'anoche'];
 let knownWords = [];
 
@@ -13,16 +14,13 @@ unknownWords.forEach((word) => {
         // console.log(unknownIndex)
         let idx = unknownWords.indexOf(word);
         unknownWords.splice(idx, 1);
+        knownWords.push(word);
         console.log(unknownWords);
-        // if (idx )
-        // console.log(idx)
+        knownPara.textContent = knownWords;
+        knownContainer.appendChild(knownPara);
+        console.log(knownWords);
     })});
-    //     if (idx )
-    //     // unknownWords.filter(word);
-    //     // knownWords.push(word);
-    //     // console.log(unknownWords);
-    //     // console.log(knownWords);
-    // })});
+
 
 
 
