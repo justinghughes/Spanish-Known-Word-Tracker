@@ -10,16 +10,32 @@
 <body>
     <h1>Spanish Tracker</h1>
     <div id="unknown-container">
+        <p id="unknown-para"></p>
     </div>
     <div id="known-container">
         <h2>Your Known Words</h2>
         <p id="known-para"></p>
     </div>
     <style>
+        h1,h2 {
+            text-align: center;
+        }
         #unknown-container {
             display: flex;
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        #unknown-para {
+            display: flex;
+            flex-wrap: wrap;
             gap: 5px;
         }
+
         button {
             background: rgb(170, 209, 245);
             border-radius: 4px;
