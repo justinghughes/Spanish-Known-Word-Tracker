@@ -14,6 +14,7 @@ unknownWords.forEach((word) => {
         // console.log(unknownWords.indexOf(word));
         // let unknownIndex = unknownWords.indexOf(word);
         // console.log(unknownIndex)
+        clickableWord.classList.add('clicked-btn');
         clickableWord.disabled = true;
         let idx = unknownWords.indexOf(word);
         unknownWords.splice(idx, 1);
