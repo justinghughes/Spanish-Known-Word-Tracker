@@ -9,13 +9,20 @@ unknownWords.forEach((word) => {
     unknownContainer.appendChild(clickableWord);
     clickableWord.addEventListener('click', function() {
         // console.log(unknownWords.indexOf(word));
-        let unknownIndex = unknownWords.indexOf(word);
-        knownWords.push(word);
-        // console.log(unknownWords);
-        console.log(knownWords);
-    })
-});
-
+        // let unknownIndex = unknownWords.indexOf(word);
+        // console.log(unknownIndex)
+        let idx = unknownWords.indexOf(word);
+        unknownWords.splice(idx, 1);
+        console.log(unknownWords);
+        // if (idx )
+        // console.log(idx)
+    })});
+    //     if (idx )
+    //     // unknownWords.filter(word);
+    //     // knownWords.push(word);
+    //     // console.log(unknownWords);
+    //     // console.log(knownWords);
+    // })});
 
 
 
