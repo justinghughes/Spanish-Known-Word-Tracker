@@ -12,18 +12,26 @@
     <div id="unknown-container">
         <p id="unknown-para"></p>
     </div>
+    <div id="learn-container">
+        <h2>Words your learning</h2>
+        <p id="learn-para"></p>
+    </div>
     <div id="known-container">
         <h2>Your Known Words</h2>
         <p id="known-para"></p>
     </div>
     <style>
+        * {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
         h1,h2 {
             text-align: center;
         }
         #unknown-container {
             display: flex;
             margin: 0 auto;
-            width: 1000px;
+            width: 1200px;
         }
 
         p {
@@ -33,13 +41,20 @@
         #unknown-para {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #learn-para {
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         button {
             background: rgb(170, 209, 245);
             border-radius: 4px;
             border: none;
+            height: 25px;
+            font-size: 1.2em;
         }
 
         button:hover {
@@ -47,8 +62,13 @@
             border-radius: 4px;
         }
 
-        .clicked-btn {
-            background: none;
+        .clicked-learn {
+            background: rgb(236, 236, 105);
+            color: black;
+        }
+
+        .clicked-known {
+            background: rgb(255, 255, 255);
             color: black;
         }
     </style>
