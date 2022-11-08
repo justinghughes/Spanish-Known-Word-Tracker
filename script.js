@@ -30,6 +30,7 @@ unknownWords.forEach((word) => {
             knownPara.textContent = knownWords;
             knownContainer.appendChild(knownPara);
         } else {
+        console.log(e.target);
         clickableWord.classList.add('clicked-learn');
         console.log('you be learning this still')
         let idx = unknownWords.indexOf(word);
