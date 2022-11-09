@@ -8,6 +8,8 @@ let str = 'Un hombre de 43 años también está detenido, acusado de ayudar a oc
 
 let unknownWords = str.split(' ');
 let clicked = false;
+// let countTest = unknownWords.filter(x => x === 'la').length;
+// alert(countTest);
 
 // let unknownWords = ['Hola', 'me', 'llamaste', 'anoche'];
 
@@ -19,7 +21,7 @@ unknownWords.forEach((word) => {
     clickableWord.textContent = word;
     unknownPara.appendChild(clickableWord)
     unknownContainer.appendChild(unknownPara);
-    clickableWord.addEventListener('click', function(e) {
+    clickableWord.addEventListener('click', function() {
         if (clickableWord.classList.contains('clicked-learn')) {
             console.log('this be known');
             clickableWord.classList.add('clicked-known');
@@ -30,11 +32,19 @@ unknownWords.forEach((word) => {
             knownPara.textContent = knownWords;
             knownContainer.appendChild(knownPara);
         } else {
-        console.log(e.target);
         clickableWord.classList.add('clicked-learn');
+        let children = unknownPara.children;
+        for (let i = 0; i < children.length; i++) {
+            let tableChild = children[i];
+            if (tableChild.textContent === word) {
+                tableChild.classList.add('clicked-learn');
+            }
+        }
+        
         console.log('you be learning this still')
         let idx = unknownWords.indexOf(word);
         unknownWords.splice(idx, 1);
+
         learnWords.push(word);
         learnPara.textContent = learnWords;
         learnContainer.appendChild(learnPara);
