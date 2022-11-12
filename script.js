@@ -77,14 +77,18 @@ unknownWords.forEach((word) => {
     }
 
         knownWordBtn.addEventListener('click', () => {
-            console.log(clickableWord.textContent)
-            let idx = learnWords.indexOf(word);
-            learnWords.splice(idx, 1);
-            learnPara.textContent = learnWords
-            knownWords.push(word);
-            knownPara.textContent = knownWords;
-            knownContainer.appendChild(knownPara);
-            
+            if (clickableWord.classList.contains('clicked-known')) {
+                console.log('you already learned this word!')
+            } else {
+                console.log(clickableWord.textContent)
+                let idx = learnWords.indexOf(word);
+                learnWords.splice(idx, 1);
+                learnPara.textContent = learnWords
+                knownWords.push(word);
+                knownPara.textContent = knownWords;
+                knownContainer.appendChild(knownPara);
+                clickableWord.classList.add('clicked-known')
+            }
         })
         
         }
