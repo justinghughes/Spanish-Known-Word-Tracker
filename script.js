@@ -6,6 +6,37 @@ const learnPara = document.querySelector('#learn-para');
 const knownPara = document.querySelector('#known-para');
 let str = 'Un hombre de 43 años también está detenido, acusado de ayudar a ocultar el cuerpo de la niña, según el comunicado de la Fiscalía. El ministro de Justicia, Eric Dupond-Moretti, declaró el martes ante la Asamblea Nacional que la mujer detenida recibió una orden de abandonar Francia el 22 de agosto. La sospechosa era desconocida para la policía, añadió, pero ella misma era víctima de la violencia. Este asesino en serie y caníbal es tan pura maldad que retiraron de la venta su disfraz para Halloween. Entró legalmente al país en 2016 tras obtener una visa de estudiante que había expirado desde entonces, dijo Veran. En agosto, cuando aterrizó en el aeropuerto parisino de Orly, las autoridades se percataron de su estatus migratorio y le dieron la orden de abandonar el país, pero la dejaron entrar, explicó el portavoz. Los políticos de extrema derecha han arremetido contra el Gobierno centrista del presidente francés, Emmanuel Macron, y han culpado a sus políticas de inmigración de la muerte de la niña. Una vez más, el sospechoso de esta barbarie no debería haber estado en Francia. A qué esperan para actuar para que se detenga de una vez esta inmigración ilegal fuera de control?, escribió el martes en la red social Twitter Marine Le Pen, que este año se presentó sin éxito a las elecciones presidenciales por tercera vez.';
 const sideBar = document.querySelector('.side-bar');
+const vocabSideBar = document.querySelector('.side-bar-vocab');
+const vocabBtn = document.querySelector('.vocab-list');
+const backBtn = document.querySelector('.back-btn');
+const vocabPara = document.querySelector('.vocab-para');
+const vocabList = document.querySelector('.vocab-list-ul');
+let vocabCheck = false;
+
+vocabBtn.onclick = function () {
+    vocabCheck = true;
+    console.log('vocabCheck set to true.')
+}
+
+vocabBtn.addEventListener('click', () => {
+    vocabSideBar.classList.toggle('active');
+    console.log('vocab clicked');
+    // vocabPara.textContent = knownWords;
+    // vocabSideBar.appendChild(vocabPara);
+    // knownWords.forEach((item) => {
+    //     let li = document.createElement('li');
+    //     li.innerText = item;
+    //     vocabList.appendChild(li);
+    // });
+    // vocabPara.appendChild(vocabList);
+});
+
+backBtn.addEventListener('click', () => {
+    vocabSideBar.classList.toggle('active');
+    vocabCheck = false;
+    console.log('vocabCheck set to false.')
+})
+
 
 let unknownWords = str.split(' ');
 let clicked = false;
@@ -67,8 +98,6 @@ unknownWords.forEach((word) => {
                 sideBar.appendChild(knownWordBtn);
             }
         }
-        
-        
         for (let i = 0; i < children.length; i++) {
             let tableChild = children[i];
             if (tableChild.textContent === word) {
@@ -80,6 +109,12 @@ unknownWords.forEach((word) => {
             if (clickableWord.classList.contains('clicked-known')) {
                 console.log('you already learned this word!')
             } else {
+                for (let i = 0; i < children.length; i++) {
+                    let tableChild = children[i];
+                    if (tableChild.textContent === word) {
+                        tableChild.classList.add('clicked-known');
+                    }
+            }
                 console.log(clickableWord.textContent)
                 let idx = learnWords.indexOf(word);
                 learnWords.splice(idx, 1);
@@ -87,8 +122,11 @@ unknownWords.forEach((word) => {
                 knownWords.push(word);
                 knownPara.textContent = knownWords;
                 knownContainer.appendChild(knownPara);
-                clickableWord.classList.add('clicked-known')
             }
+            let li = document.createElement('li');
+                    li.innerText = word;
+                    vocabList.appendChild(li);
+                    vocabPara.appendChild(vocabList);
         })
         
         }
