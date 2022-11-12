@@ -9,7 +9,6 @@ const sideBar = document.querySelector('.side-bar');
 
 let unknownWords = str.split(' ');
 let clicked = false;
-let knownWordBtn = document.querySelector('.know-btn');
 // let countTest = unknownWords.filter(x => x === 'la').length;
 // alert(countTest);
 
@@ -18,20 +17,58 @@ let knownWordBtn = document.querySelector('.know-btn');
 let learnWords = [];
 let knownWords = [];
 let children = unknownPara.children;
+let clickedBefore = false;
+let knownWordBtn = document.createElement('button');
 
 
 unknownWords.forEach((word) => {
     let clickableWord = document.createElement('button');
-    clickableWord.classList.add('btns')
+    clickableWord.classList.add('btns');
     clickableWord.textContent = word;
-    unknownPara.appendChild(clickableWord)
+    unknownPara.appendChild(clickableWord);
     unknownContainer.appendChild(unknownPara);
     clickableWord.addEventListener('click', function() {
-        clickableWord.classList.add('clicked-learn');
-        // knownWordBtn.remove();
-        // document.createElement('button');
-        // knownWordBtn.textContent = 'I know';
-        sideBar.appendChild(knownWordBtn);
+        if (clickableWord.classList.contains('clicked-learn')) {
+            if (clickedBefore) {
+                console.log('has been clicked ya')
+                sideBar.removeChild(knownWordBtn);
+                // clickableWord.classList.add('clicked-learn');
+                knownWordBtn = document.createElement('button');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            } else {
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            }
+        } else {
+            console.log('hasnt been clicked!');
+            if (clickedBefore) {
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                sideBar.removeChild(knownWordBtn);
+                knownWordBtn = document.createElement('button');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            } else {
+                console.log('you clicked to learn.')
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            }
+        }
+        
+        
         for (let i = 0; i < children.length; i++) {
             let tableChild = children[i];
             if (tableChild.textContent === word) {
@@ -40,32 +77,15 @@ unknownWords.forEach((word) => {
     }
 
         knownWordBtn.addEventListener('click', () => {
-            console.log(clickableWord)
-            clickableWord.classList.add('clicked-known');
-            for (let i = 0; i < children.length; i++) {
-                let tableChild = children[i];
-                if (tableChild.textContent === word) {
-                    tableChild.classList.add('clicked-known');
-                    tableChild.classList.remove('clicked-learn');
-                    
-                }
-        }
-                    let idx = learnWords.indexOf(word);
-                    learnWords.splice(idx, 1);
-                    learnPara.textContent = learnWords
-                    knownWords.push(word);
-                    knownPara.textContent = knownWords;
-                    knownContainer.appendChild(knownPara);
+            console.log(clickableWord.textContent)
+            let idx = learnWords.indexOf(word);
+            learnWords.splice(idx, 1);
+            learnPara.textContent = learnWords
+            knownWords.push(word);
+            knownPara.textContent = knownWords;
+            knownContainer.appendChild(knownPara);
             
         })
         
-        console.log('you be learning this still')
-        let idx = unknownWords.indexOf(word);
-        unknownWords.splice(idx, 1);
-
-        learnWords.push(word);
-        learnPara.textContent = learnWords;
-        learnContainer.appendChild(learnPara);
         }
     )})
-
