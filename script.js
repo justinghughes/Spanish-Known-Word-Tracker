@@ -13,6 +13,7 @@ const vocabPara = document.querySelector('.vocab-para');
 const vocabList = document.querySelector('.vocab-list-ul');
 let vocabCheck = false;
 
+
 vocabBtn.onclick = function () {
     vocabCheck = true;
     console.log('vocabCheck set to true.')
@@ -105,6 +106,15 @@ unknownWords.forEach((word) => {
             }
     }
 
+    if (clickableWord.classList.contains('clicked-learn')) {
+        let li = document.createElement('li');
+        li.innerText = word;
+        vocabList.appendChild(li);
+        vocabPara.appendChild(vocabList);
+    } else {
+        console.log('nooope')
+    }
+
         knownWordBtn.addEventListener('click', () => {
             if (clickableWord.classList.contains('clicked-known')) {
                 console.log('you already learned this word!')
@@ -123,11 +133,12 @@ unknownWords.forEach((word) => {
                 knownPara.textContent = knownWords;
                 knownContainer.appendChild(knownPara);
             }
+            
             let li = document.createElement('li');
                     li.innerText = word;
                     vocabList.appendChild(li);
                     vocabPara.appendChild(vocabList);
         })
-        
         }
     )})
+
