@@ -11,6 +11,9 @@ const vocabBtn = document.querySelector('.vocab-list');
 const backBtn = document.querySelector('.back-btn');
 const vocabPara = document.querySelector('.vocab-para');
 const vocabList = document.querySelector('.vocab-list-ul');
+const sideBarTitleContainer = document.querySelector('#side-bar-title-container');
+let sideBarTitle = document.createElement('h3');
+// const sideBarTitle = document.querySelector('#side-bar-title');
 let vocabCheck = false;
 
 
@@ -60,6 +63,8 @@ unknownWords.forEach((word) => {
     unknownPara.appendChild(clickableWord);
     unknownContainer.appendChild(unknownPara);
     clickableWord.addEventListener('click', function() {
+        sideBarTitle.textContent = word;
+        sideBarTitleContainer.appendChild(sideBarTitle);
         if (clickableWord.classList.contains('clicked-learn')) {
             if (clickedBefore) {
                 console.log('has been clicked ya')
