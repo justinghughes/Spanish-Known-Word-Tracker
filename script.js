@@ -86,6 +86,10 @@ unknownWords.forEach((word) => {
                 knownWordBtn = document.createElement('button');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
             } else {
                 console.log('you clicked to learn.')
                 let idx = unknownWords.indexOf(word);
@@ -97,6 +101,10 @@ unknownWords.forEach((word) => {
                 clickableWord.classList.add('clicked-learn');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
             }
         }
         for (let i = 0; i < children.length; i++) {
@@ -104,15 +112,6 @@ unknownWords.forEach((word) => {
             if (tableChild.textContent === word) {
                 tableChild.classList.add('clicked-learn');
             }
-    }
-
-    if (clickableWord.classList.contains('clicked-learn')) {
-        let li = document.createElement('li');
-        li.innerText = word;
-        vocabList.appendChild(li);
-        vocabPara.appendChild(vocabList);
-    } else {
-        console.log('nooope')
     }
 
         knownWordBtn.addEventListener('click', () => {
@@ -134,10 +133,10 @@ unknownWords.forEach((word) => {
                 knownContainer.appendChild(knownPara);
             }
             
-            let li = document.createElement('li');
-                    li.innerText = word;
-                    vocabList.appendChild(li);
-                    vocabPara.appendChild(vocabList);
+            // let li = document.createElement('li');
+            //         li.innerText = word;
+            //         vocabList.appendChild(li);
+            //         vocabPara.appendChild(vocabList);
         })
         }
     )})
