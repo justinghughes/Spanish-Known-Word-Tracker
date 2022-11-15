@@ -1,0 +1,135 @@
+:root {
+    --side-bar-bg: white;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 75px;
+    box-shadow: 0 1px 6px 0 rgba(47, 58, 69, 0.51);
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 105;
+    display: flex;
+    align-items: center;
+}
+
+header > h1 {
+    margin-left: 60px;
+    font-size: 26px;
+}
+
+.flag, .logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+}
+
+.logo {
+    margin-left: 50px;
+}
+
+h1,h2 {
+    text-align: center;
+}
+
+#arrow1, #arrow2 {
+    width: 40px;
+    height: 40px;
+}
+
+.header-container {
+    display: flex;
+    position: absolute;
+    right: 60px;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-links {
+    display: flex;
+    position: absolute;
+    right: 950px;
+    gap: 35px;
+}
+
+.header-links > * {
+    border-top: 6px solid rgb(34, 34, 34);
+    line-height: 74px;
+}
+
+.header-links > h3:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+.profile-circle {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(188, 216, 240);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 20px;
+    color: rgb(68, 142, 207);
+}
+
+.header-container > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.import-btn {
+    background: #3498db;
+    border-radius: 16px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 1.17em;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    border: none;
+    width: fit-content;
+    width: 100px;
+  }
+
+  .import-btn:hover {
+    background: #5fabdd;
+    border-radius: 16px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 1.17em;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    border: none;
+    width: fit-content;
+    width: 100px;
+  }
+
+  a:link {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+  section > p {
+    background-color: rgba(242, 245, 249, 1);
+    width: 900px;
+    font-size: 26px;
+    margin: auto;
+    border-radius: 16px;
+    padding: 30px;
+  }

@@ -71,11 +71,13 @@ unknownWords.forEach((word) => {
                 sideBar.removeChild(knownWordBtn);
                 // clickableWord.classList.add('clicked-learn');
                 knownWordBtn = document.createElement('button');
+                knownWordBtn.classList.toggle('btn-active');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
             } else {
                 clickedBefore = true;
                 clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
             }
@@ -89,6 +91,7 @@ unknownWords.forEach((word) => {
                 learnContainer.appendChild(learnPara);
                 sideBar.removeChild(knownWordBtn);
                 knownWordBtn = document.createElement('button');
+                knownWordBtn.classList.toggle('btn-active');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
                 let li = document.createElement('li');
@@ -104,6 +107,7 @@ unknownWords.forEach((word) => {
                 learnContainer.appendChild(learnPara);
                 clickedBefore = true;
                 clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
                 knownWordBtn.textContent = 'I know';
                 sideBar.appendChild(knownWordBtn);
                 let li = document.createElement('li');
