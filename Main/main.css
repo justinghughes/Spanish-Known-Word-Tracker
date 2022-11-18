@@ -1,0 +1,125 @@
+:root {
+    --side-bar-bg: white;
+}
+
+html {
+    background: url(https://images.pexels.com/photos/5900141/pexels-photo-5900141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center fixed;
+    background-size: 100%;
+}
+
+.layer {
+    background-color: rgba(17, 66, 111, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    height: 100%;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 75px;
+    background-color: rgb(18, 37, 61, .85);
+    margin-bottom: 100px;
+    z-index: 105;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+header > h1 {
+    margin-left: 60px;
+    font-size: 26px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+    border-radius: 100%;
+}
+
+.logo {
+    margin-left: 50px;
+}
+
+  a:link {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+.header-links {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    gap: 30px;
+}
+
+.login {
+    border: 2px solid white;
+    background-color: rgb(18, 37, 61, .85);
+    border-radius: 35px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.signup {
+    background-color: #fbb718;;
+    border: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1.2px 1.2px 2px #131313;
+    padding: 13px 20px;
+}
+
+.content-section {
+    display: flex;
+}
+
+.content-container {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-shadow: 1.2px 1.2px 4px #131313;
+    margin-left: 250px;
+}
+
+.content-container h1 {
+    font-size: 4rem;
+    width: 790.98px;
+}
+
+.content-container p {
+    font-size: 32px;
+    margin-top: -35px;
+}
+
+.content-container button {
+    font-size: 32px;
+    padding: 18px 35px;
+}
+
+.circle-container img {
+    width: 400px;
+    height: 400px;
+    margin-left: 150px;
+    border-radius: 50%;
+    /* border-radius: 50%;
+    background-color: gray; */
+}
