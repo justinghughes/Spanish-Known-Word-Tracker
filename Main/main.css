@@ -115,11 +115,32 @@ header > h1 {
     padding: 18px 35px;
 }
 
-.circle-container img {
+.circle-container {
+    position: relative;
+}
+
+.spain {
     width: 400px;
     height: 400px;
     margin-left: 150px;
     border-radius: 50%;
-    /* border-radius: 50%;
-    background-color: gray; */
+    position: absolute;
+}
+
+@keyframes fadeIn {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+
+.france {
+    /* position: absolute; */
+    width: 400px;
+    height: 400px;
+    margin-left: 150px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 1;
+    animation: fadeIn 10s linear;
+    animation-iteration-count: infinite;
 }
