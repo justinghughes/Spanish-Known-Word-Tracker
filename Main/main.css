@@ -127,6 +127,11 @@ header > h1 {
     position: absolute;
 }
 
+#get-started a {
+    text-decoration: none;
+    color: white;
+}
+
 @keyframes fadeIn {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
@@ -143,4 +148,24 @@ header > h1 {
     opacity: 1;
     animation: fadeIn 10s linear;
     animation-iteration-count: infinite;
+}
+
+.footer-container {
+    background-color: rgb(18, 37, 61, .85); 
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    height: 80px;
+    gap: 15px;
+}
+
+.footer-div2 a {
+    color: white;
+    /* margin-left: 60px; */
+    text-align: center;
+    margin-left: 40px;
 }
