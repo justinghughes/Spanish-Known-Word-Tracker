@@ -382,3 +382,12 @@ button:hover {
     border: none;
     text-decoration: none;
 }
+
+.not-word {
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+    width: 5px;
+    font-size: 1.2em;
+    background-color: white;
+}

@@ -43,6 +43,8 @@ backBtn.addEventListener('click', () => {
 
 
 let unknownWords = str.split(' ');
+console.log(unknownWords)
+console.log(typeof(unknownWords))
 let clicked = false;
 // let countTest = unknownWords.filter(x => x === 'la').length;
 // alert(countTest);
@@ -57,6 +59,181 @@ let knownWordBtn = document.createElement('button');
 
 
 unknownWords.forEach((word) => {
+    if (word.includes('.')) {
+        let yo = word.replace('.', '');
+        let clickableWord = document.createElement('button');
+        clickableWord.classList.add('btns');
+        clickableWord.textContent = yo;
+        unknownPara.appendChild(clickableWord);
+        unknownContainer.appendChild(unknownPara)
+        let periodBtn = document.createElement('button');
+        periodBtn.classList.add('not-word');
+        periodBtn.textContent = '.';
+        unknownPara.appendChild(periodBtn);
+        unknownContainer.appendChild(unknownPara)
+        clickableWord.addEventListener('click', function () {
+            sideBarTitle.textContent = word;
+        sideBarTitleContainer.appendChild(sideBarTitle);
+        if (clickableWord.classList.contains('clicked-learn')) {
+            if (clickedBefore) {
+                console.log('has been clicked ya')
+                sideBar.removeChild(knownWordBtn);
+                // clickableWord.classList.add('clicked-learn');
+                knownWordBtn = document.createElement('button');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            } else {
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            }
+        } else {
+            console.log('hasnt been clicked!');
+            if (clickedBefore) {
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                sideBar.removeChild(knownWordBtn);
+                knownWordBtn = document.createElement('button');
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
+            } else {
+                console.log('you clicked to learn.')
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
+            }
+        }
+        knownWordBtn.addEventListener('click', () => {
+            if (clickableWord.classList.contains('clicked-known')) {
+                console.log('you already learned this word!')
+            } else {
+                clickableWord.classList.add('clicked-known')
+                console.log(clickableWord.textContent)
+                let idx = learnWords.indexOf(word);
+                learnWords.splice(idx, 1);
+                learnPara.textContent = learnWords
+                knownWords.push(word);
+                knownPara.textContent = knownWords;
+                knownContainer.appendChild(knownPara);
+            }
+            
+            // let li = document.createElement('li');
+            //         li.innerText = word;
+            //         vocabList.appendChild(li);
+            //         vocabPara.appendChild(vocabList);
+        })
+        })
+    } else if (word.includes(',')) {
+        let yo2 = word.replace(',', '');
+        let clickableWord = document.createElement('button');
+        clickableWord.classList.add('btns');
+        clickableWord.textContent = yo2;
+        unknownPara.appendChild(clickableWord);
+        unknownContainer.appendChild(unknownPara)
+        let commaBtn = document.createElement('button');
+        commaBtn.classList.add('not-word');
+        commaBtn.textContent = ',';
+        unknownPara.appendChild(commaBtn);
+        unknownContainer.appendChild(unknownPara)
+        clickableWord.addEventListener('click', function () {
+            sideBarTitle.textContent = word;
+        sideBarTitleContainer.appendChild(sideBarTitle);
+        if (clickableWord.classList.contains('clicked-learn')) {
+            if (clickedBefore) {
+                console.log('has been clicked ya')
+                sideBar.removeChild(knownWordBtn);
+                // clickableWord.classList.add('clicked-learn');
+                knownWordBtn = document.createElement('button');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            } else {
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+            }
+        } else {
+            console.log('hasnt been clicked!');
+            if (clickedBefore) {
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                sideBar.removeChild(knownWordBtn);
+                knownWordBtn = document.createElement('button');
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
+            } else {
+                console.log('you clicked to learn.')
+                let idx = unknownWords.indexOf(word);
+                unknownWords.splice(idx, 1);
+                learnWords.push(word);
+                learnPara.textContent = learnWords;
+                learnContainer.appendChild(learnPara);
+                clickedBefore = true;
+                clickableWord.classList.add('clicked-learn');
+                knownWordBtn.classList.toggle('btn-active');
+                knownWordBtn.textContent = 'I know';
+                sideBar.appendChild(knownWordBtn);
+                let li = document.createElement('li');
+                li.innerText = word;
+                vocabList.appendChild(li);
+                vocabPara.appendChild(vocabList);
+            }
+        }
+        knownWordBtn.addEventListener('click', () => {
+            if (clickableWord.classList.contains('clicked-known')) {
+                console.log('you already learned this word!')
+            } else {
+                clickableWord.classList.add('clicked-known')
+                console.log(clickableWord.textContent)
+                let idx = learnWords.indexOf(word);
+                learnWords.splice(idx, 1);
+                learnPara.textContent = learnWords
+                knownWords.push(word);
+                knownPara.textContent = knownWords;
+                knownContainer.appendChild(knownPara);
+            }
+            
+            // let li = document.createElement('li');
+            //         li.innerText = word;
+            //         vocabList.appendChild(li);
+            //         vocabPara.appendChild(vocabList);
+        })
+        })
+    } else {
     let clickableWord = document.createElement('button');
     clickableWord.classList.add('btns');
     clickableWord.textContent = word;
@@ -148,5 +325,5 @@ unknownWords.forEach((word) => {
             //         vocabPara.appendChild(vocabList);
         })
         }
-    )})
+    )}})
 
