@@ -74,7 +74,8 @@ form {
     padding: 50px;
     align-items: center;
     justify-content: center;
-    margin-top: -70px;
+    margin-top: -95px;
+    position: relative;
 }
 
 .form-container {
@@ -130,6 +131,14 @@ form button {
         text-shadow: 1.2px 1.2px 2px #131313;
         padding: 10px 15px;
         width: 200px;
+        margin-top: 10px;
+    }
+
+    .already {
+        position: absolute;
+        top: 150px;
+        left: 1250px;
+        width: 400px;
     }
 
     .footer-container {
