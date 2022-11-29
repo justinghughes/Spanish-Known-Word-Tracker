@@ -13,8 +13,27 @@ const vocabPara = document.querySelector('.vocab-para');
 const vocabList = document.querySelector('.vocab-list-ul');
 const sideBarTitleContainer = document.querySelector('#side-bar-title-container');
 let sideBarTitle = document.createElement('h3');
+let importBtn = document.querySelector('.import-btn');
+let importOverlay = document.querySelector('.import');
+const fileUpload = document.querySelector('#import');
+const overlayDark = document.querySelector('.overlay-dark');
+const ex = document.querySelector('.ex');
 // const sideBarTitle = document.querySelector('#side-bar-title');
 let vocabCheck = false;
+
+ex.addEventListener('click', () => {
+    importOverlay.classList.toggle('imp-active');
+    overlayDark.classList.toggle('imp-active')
+})
+
+fileUpload.addEventListener('click', () => {
+    alert('uploading')
+})
+
+importBtn.addEventListener('click', () => {
+    importOverlay.classList.toggle('imp-active');
+    overlayDark.classList.toggle('imp-active')
+})
 
 
 vocabBtn.onclick = function () {
